@@ -50,6 +50,10 @@ jobs:
           # ln -s /mnt/openwrt/staging_dir ./staging_dir
 
           df -h
+          
+      - name: 自定义插件
+        run: cd package
+          git clone https://github.com/Lienol/openwrt-package
 
       - name: Update feeds
         run: |
