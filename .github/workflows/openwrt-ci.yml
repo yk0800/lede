@@ -12,6 +12,8 @@ name: OpenWrt-CI
 on:
   schedule:
     - cron: 0 20 * * *
+  watch:
+    types: [started]
 
 jobs:
 
@@ -27,6 +29,7 @@ jobs:
 
       - name: Space cleanup
         env:
+          CONFIG_FILE: x86.config
           DEBIAN_FRONTEND: noninteractive
         run: |
           docker rmi `docker images -q`
